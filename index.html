@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <style>
+    html {
+      font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Hiragino Sans GB,Microsoft Yahei,Microsoft Jhenghei,sans-serif;
+      width: 100%;
+      height: 100%;
+    }
+    body {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <div>离我们第一次牵手，至今已经</div>
+  <div id="count"></div>
+
+  <script>
+    let countEl= document.querySelector("#count");
+
+    function counting () {
+      var msecPerMinute = 1000 * 60;
+      var msecPerHour = msecPerMinute * 60;
+      var msecPerDay = msecPerHour * 24;
+
+      var loveBegin = new Date('6/10/2017');
+      var loveBeginMsec = loveBegin.getTime();
+
+      var now = new Date();
+      var nowMsec = now.getTime();
+
+      var interval = nowMsec - loveBeginMsec;
+
+      var days = Math.floor(interval / msecPerDay );
+      interval = interval - (days * msecPerDay );
+
+      var hours = Math.floor(interval / msecPerHour );
+      interval = interval - (hours * msecPerHour );
+
+      var minutes = Math.floor(interval / msecPerMinute );
+      interval = interval - (minutes * msecPerMinute );
+
+      var seconds = Math.floor(interval / 1000 );
+
+      countEl.innerText = `${days} 天 ${hours} 小时 ${minutes} 分钟 ${seconds} 秒`;
+    }
+
+    setInterval(counting, 1000);
+  </script>
+</body>
+</html>
