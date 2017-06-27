@@ -20,12 +20,19 @@
       margin: 0;
       padding: 0;
     }
+    footer {
+      text-align: center;
+      position: fixed;
+      font-size: 12px;
+      color: #8D8D8D;
+      bottom: 40px;
+    }
   </style>
 </head>
 <body>
   <div>离我们第一次牵手，至今已经</div>
   <div id="count"></div>
-
+  <footer>Made with <3 by Jin</footer>
   <script>
     let countEl= document.querySelector("#count");
 
@@ -41,16 +48,12 @@
       var nowMsec = now.getTime();
 
       var interval = nowMsec - loveBeginMsec;
-
       var days = Math.floor(interval / msecPerDay );
       interval = interval - (days * msecPerDay );
-
       var hours = Math.floor(interval / msecPerHour );
       interval = interval - (hours * msecPerHour );
-
       var minutes = Math.floor(interval / msecPerMinute );
       interval = interval - (minutes * msecPerMinute );
-
       var seconds = Math.floor(interval / 1000 );
 
       countEl.innerText = `${days} 天 ${hours} 小时 ${minutes} 分钟 ${seconds} 秒`;
